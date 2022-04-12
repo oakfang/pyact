@@ -1,8 +1,12 @@
+import * as mui from "@mui/material";
+import * as icons from '@mui/icons-material'
 import "./index.css";
 import { install } from "./pyact";
 
 async function main() {
   const pyodide = await install();
+  pyodide.registerJsModule("mui", mui);
+  pyodide.registerJsModule("icons", icons);
 
   await pyodide.runPythonAsync(`
     import micropip
