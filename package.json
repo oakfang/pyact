@@ -15,7 +15,10 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "build:pyact": "cd public/lib/pyact && python setup.py bdist_wheel --python-tag py3",
+    "build:app": "cd public/lib/app &&  python setup.py bdist_wheel --python-tag py3",
+    "build:python": "npm run build:pyact && npm run build:app"
   },
   "eslintConfig": {
     "extends": [
