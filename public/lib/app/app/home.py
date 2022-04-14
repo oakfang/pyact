@@ -1,4 +1,4 @@
-from pyact import component, use_state, as_js, text
+from pyact import component, use_state, text
 from .node_modules import mui
 from .hooks import use_style
 from .couter_controller import counter_controller
@@ -9,7 +9,7 @@ def home():
     counter, set_counter = use_state(0)
     style = use_style(counter)
 
-    with mui.AppBar(position="static", sx=as_js(dict(padding=2))):
+    with mui.AppBar(position="static", sx=dict(padding=2)):
         with mui.Typography(variant="h4", component="div"):
             text("PyAct Demo")
 

@@ -1,4 +1,4 @@
-from pyact import use_memo, use_effect, as_js
+from pyact import use_memo, use_effect
 
 
 def use_style(counter):
@@ -6,7 +6,7 @@ def use_style(counter):
 
     @use_memo(color)
     def style():
-        return as_js(dict(color=f"{color}.main"))
+        return dict(color=f"{color}.main")
 
     @use_effect(counter)
     def print_counter():

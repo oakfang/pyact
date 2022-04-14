@@ -23,16 +23,18 @@ def include(children):
 
 
 def to_js_object(dict: dict):
-    return js.Object.fromEntries(pyodide.to_js(dict))
+    return js.Object.fromEntries(pyodide.to_js({k: as_js(v) for k, v in dict.items()}))
 
 
 def to_js_array(lst: list):
-    return pyodide.to_js(lst)
+    return pyodide.to_js([as_js(x) for x in lst])
 
 
-def as_js(item: Union[list, dict, Callable, tuple]):
+def as_js(item):
     if isinstance(item, (list, tuple)):
         return to_js_array(item)
     elif isinstance(item, dict):
         return to_js_object(item)
-    return pyodide.create_proxy(item)
+    elif isinstance(item, Callable):
+        return pyodide.create_proxy(item)
+    return item
