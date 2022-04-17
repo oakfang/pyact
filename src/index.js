@@ -5,6 +5,7 @@ import { install } from "./pyact";
 
 async function main() {
   const pyodide = await install();
+  await pyodide.loadPackage('pillow');
   pyodide.registerJsModule("mui", mui);
   pyodide.registerJsModule("icons", icons);
 
