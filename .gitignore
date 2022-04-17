@@ -22,9 +22,6 @@ npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
 
-# for demo purposes
-package-lock.json
-
 # python things
 *.egg-info/
 *.whl
