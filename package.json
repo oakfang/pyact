@@ -23,7 +23,7 @@
     "build:pyact": "cd public/lib/pyact && python setup.py bdist_wheel --python-tag py3",
     "build:app": "cd public/lib/app &&  python setup.py bdist_wheel --python-tag py3",
     "build:python": "npm run build:pyact && npm run build:app",
-    "prebuild": "npm run build:pyton"
+    "prebuild": "npm run build:python"
   },
   "eslintConfig": {
     "extends": [

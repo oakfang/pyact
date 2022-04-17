@@ -1,8 +1,12 @@
-import "https://cdn.jsdelivr.net/pyodide/v0.20.0/full/pyodide.js";
 import React from "react";
 import ReactDOM from "react-dom/client";
 
 export async function install() {
+  const pyodideScript = document.createElement("script");
+  pyodideScript.src =
+    "https://cdn.jsdelivr.net/pyodide/v0.20.0/full/pyodide.js";
+  document.head.appendChild(pyodideScript);
+  await new Promise((resolve) => (pyodideScript.onload = resolve));
   const pyodide = await window.loadPyodide();
   await pyodide.loadPackage("micropip");
   pyodide.registerJsModule("react", React);
