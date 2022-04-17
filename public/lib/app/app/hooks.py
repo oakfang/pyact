@@ -50,7 +50,7 @@ def use_vfs_asset(asset_path):
 
 
 def use_image_transformation(vfs_path, format, transformer=IDENTITY):
-    @use_memo(vfs_path, format, transformer)
+    @use_memo(vfs_path, format, id(transformer))
     def transformed_vfs_asset_path():
         if vfs_path is None:
             return None
